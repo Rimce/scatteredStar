@@ -5,4 +5,5 @@
 # 4) Run Windows Updates
 
 # 1) Change Time Zone
-tzutil.exe /s "Eastern Standard Time"
+$timezone = "Eastern Standard Time"
+tzutil.exe /s $timezone
