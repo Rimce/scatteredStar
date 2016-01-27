@@ -1,9 +1,14 @@
 # Windows Server 2008 R2 Standard startup script
-# 1) Change Time zone
-# 2) Change computer name
-# 3) Enable RDP
-# 4) Run Windows Updates
+# - Set the execution policy for the script
+# - Change Time zone
+# - Enable RDP
 
-# 1) Change Time Zone
+# Set the excution policy to allow scripts to run
+Set-ExecutionPolicy Unrestricted -Force
+
+# Change Time Zone
 $timezone = "Eastern Standard Time"
 tzutil.exe /s $timezone
+
+# Enable Remote Desktop Protocol
+set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0
